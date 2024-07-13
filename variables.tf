@@ -37,14 +37,6 @@ variable "tags" {
 }
 */
 
-variable "instances" {
-  description = "A map of instance configurations"
-  type        = map(object({
-    name = string
-    az   = string
-  }))
-}
-
 variable "ami" {
   description = "The AMI to use for the instance"
   type        = string
