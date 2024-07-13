@@ -1,6 +1,8 @@
 # terraform_EC2
 Module EC2
 
+# BASE
++ main.tf MAIN
 ```
 module "ec2_instance" {
   source = "github.com/Kaiser016X/terraform_EC2"
@@ -44,8 +46,7 @@ output "private_dns" {
 }
 
 ```
-
-base :
++ main.tf Module
 ```
 resource "aws_instance" "vm1" {
   ami                    = var.ami
