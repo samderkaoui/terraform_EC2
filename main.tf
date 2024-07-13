@@ -1,12 +1,5 @@
-locals {
-  instances = {
-    web1                      = { name = "web1", az = "eu-west-3a" },
-    web2                      = { name = "web2", az = "eu-west-3b" }
-  }
-}
-
 resource "aws_instance" "vm" {
-  for_each               = local.instances
+  for_each               = var.instances
   ami                    = var.ami
   instance_type          = var.instance_type
   key_name               = var.key_name
