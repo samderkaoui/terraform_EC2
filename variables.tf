@@ -63,3 +63,8 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "public_subnets" { 
+  type        = list(string)
+  description = "Liste des identifiants de sous-réseaux publics"
+}
