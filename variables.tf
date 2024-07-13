@@ -1,5 +1,13 @@
+/*
+ici c'est pour la BASE
 variable "instance_name" {
   description = "The name of the EC2 instance"
+  type        = string
+}
+*/
+
+variable "ami" {
+  description = "The AMI to use for the instance"
   type        = string
 }
 
@@ -7,11 +15,6 @@ variable "instance_type" {
   description = "The type of the EC2 instance"
   type        = string
   default     = "t2.micro"
-}
-
-variable "ami" {
-  description = "The AMI to use for the instance"
-  type        = string
 }
 
 variable "key_name" {
