@@ -1,7 +1,7 @@
 locals {
   instances = {
     web1 = { name = "web1", az = "eu-west-3a", subnet_id = module.vpc.public_subnets[0] },
-    wweb2 = { name = "web2", az = "eu-west-3b", subnet_id = module.vpc.public_subnets[1] }
+    web2 = { name = "web2", az = "eu-west-3b", subnet_id = module.vpc.public_subnets[1] }
   }
 }
 
