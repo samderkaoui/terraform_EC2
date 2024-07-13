@@ -3,10 +3,18 @@ Module EC2
 # MULTI
 
 ```
+locals {
+  instances = {
+    web1 = { name = "web1", az = "eu-west-3a" },
+    web2 = { name = "web2", az = "eu-west-3b" }
+  }
+}
+
 module "ec2_instance" {
   source = "github.com/Kaiser016X/terraform_EC2"
 
 #  instance_name      = "my-ec2-instance" que si ju'utilise BASE
+  instances          = local.instances
   instance_type      = "t2.micro"
   ami                = "ami-080fa3659564ffbb1" # AMAZON AMI
   key_name           = module.terraform_keyssh.key_name
