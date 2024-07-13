@@ -53,11 +53,6 @@ variable "key_name" {
   type        = string
 }
 
-variable "subnet_ids" {
-  description = "List of subnet IDs"
-  type        = list(string)
-}
-
 variable "security_group_ids" {
   description = "A list of security group IDs to associate with the instance"
   type        = list(string)
