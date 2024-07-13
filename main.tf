@@ -1,13 +1,8 @@
 locals {
   instances = {
     web1                      = { name = "web1", az = "eu-west-3a" },
-    web2                      = { name = "web1", az = "eu-west-3b" }
+    web2                      = { name = "web2", az = "eu-west-3b" }
   }
-}
-
-resource "random_pet" "id" {
-  length    = 2
-  separator = "-"
 }
 
 resource "aws_instance" "vm" {
