@@ -1,5 +1,58 @@
 # terraform_EC2
 Module EC2
+# MULTI
+
+```
+module "ec2_instance" {
+  source = "github.com/Kaiser016X/terraform_EC2"
+
+#  instance_name      = "my-ec2-instance" que si ju'utilise BASE
+  instance_type      = "t2.micro"
+  ami                = "ami-080fa3659564ffbb1" # AMAZON AMI
+  key_name           = module.terraform_keyssh.key_name
+  public_subnets     = module.vpc.public_subnets
+  #security_group_ids = [module.terraform_sg.sg_ssh_o]
+  security_group_ids  = [ module.terraform_sg.sg_ssh_o, module.terraform_sg.sg_web_o]
+  tags = {
+    "Terraformed" = "True"
+  }
+}
+
+
+#EC2
+
+output "instance_ids" {
+  value = module.ec2_instance.instance_ids
+}
+
+output "public_ips" {
+  value = module.ec2_instance.public_ips
+}
+
+output "private_ips" {
+  value = module.ec2_instance.private_ips
+}
+
+output "public_dns" {
+  value = module.ec2_instance.public_dns
+}
+
+output "private_dns" {
+  value = module.ec2_instance.private_dns
+}
+
+
+```
+
+################################################
+
+################################################
+
+################################################
+
+################################################
+
+################################################
 
 # BASE
 + main.tf MAIN
