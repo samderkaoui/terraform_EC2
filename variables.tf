@@ -68,3 +68,11 @@ variable "public_subnets" {
   type        = list(string)
   description = "Liste des identifiants de sous-réseaux publics"
 }
+
+variable "instances" {
+  description = "A map of instance configurations"
+  type        = map(object({
+    name = string
+    az   = string
+  }))
+}
