@@ -14,6 +14,6 @@ resource "aws_instance" "vm" {
   vpc_security_group_ids = var.security_group_ids
 
   tags = merge({
-    Name = "${each.value.name}-${random_pet.id.id}"  # Dynamic name with random pet id
+    Name = "${each.value.name}"  # Dynamic name with random pet id
   }, var.tags)
 }
