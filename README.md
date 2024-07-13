@@ -1,2 +1,46 @@
 # terraform_EC2
 Module EC2
+
+```
+module "ec2_instance" {
+  source = "github.com/Kaiser016X/terraform_EC2"
+
+  instance_name      = "my-ec2-instance"
+  instance_type      = "t2.micro"
+  ami                = "ami-080fa3659564ffbb1" # AMAZON AMI
+  key_name           = module.terraform_keyssh.key_name
+  subnet_id          = module.vpc.public_subnets[0] # selection le premier subnet public le 2eme serait [1]
+  #security_group_ids = [module.terraform_sg.sg_ssh_o]
+  security_group_ids  = [
+    module.terraform_sg.sg_ssh_o,   # First security group
+    module.terraform_sg.sg_web_o        # Second security group
+  ]
+  tags = {
+    "Terraformed" = "True"
+  }
+}
+
+
+#EC2
+
+output "instance_id" {
+  value = module.ec2_instance.instance_id
+}
+
+output "public_ip" {
+  value = module.ec2_instance.public_ip
+}
+
+output "private_ip" {
+  value = module.ec2_instance.private_ip
+}
+
+output "public_dns" {
+  value = module.ec2_instance.public_dns
+}
+
+output "private_dns" {
+  value = module.ec2_instance.private_dns
+}
+
+```
