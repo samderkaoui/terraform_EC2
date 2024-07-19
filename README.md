@@ -14,7 +14,7 @@ module "ec2_instance" {
   source = "github.com/Kaiser016X/terraform_EC2"
 
 #  instance_name      = "my-ec2-instance" que si ju'utilise BASE
-  instances          = local.instances
+  instances          = local.instances si local sinon : var.instances
   instance_type      = "t2.micro"
   ami                = "ami-080fa3659564ffbb1" # AMAZON AMI
   key_name           = module.terraform_keyssh.key_name
