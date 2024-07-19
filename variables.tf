@@ -70,9 +70,13 @@ variable "public_subnets" {
 }
 
 variable "instances" {
-  description = "A map of instance configurations"
-  type        = map(object({
+  description = "Map of instance configurations"
+  type = map(object({
     name = string
     az   = string
   }))
+  default = {
+    web1 = { name = "web1", az = "eu-west-3a" },
+    web2 = { name = "web2", az = "eu-west-3b" }
+  }
 }
