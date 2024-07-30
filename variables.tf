@@ -37,6 +37,16 @@ variable "tags" {
 }
 */
 
+variable "volume_size" {
+  type    = number
+  default = 8
+}
+
+variable "volume_type" {
+  type    = string
+  default = "gp3"
+}
+
 variable "ami" {
   description = "The AMI to use for the instance"
   type        = string
